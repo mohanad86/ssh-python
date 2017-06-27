@@ -1,5 +1,6 @@
 from sys import argv
 import atexit
+import os
 
 script, filename = argv
 
@@ -19,7 +20,8 @@ try:
             first = raw_input("Please Enter Machine Name: ")
             second = raw_input("Please Enter The Hostname Of the Machine Or IP Address: ")
             third = raw_input("Please Enter The Port Number. Skip with Enter: ")
-            fourth = raw_input("Please Enter The User : ")
+            fourth = raw_input("Please Enter The User: ")
+            fifth =  raw_input("Copy the ssh id to the machine : ")
             if first:
                 config.write("Host " + first)
                 config.write("\n")
@@ -32,6 +34,9 @@ try:
             if fourth:
                 config.write("User " + fourth)
                 config.write("\n")
+            if fifth:
+                os.system("ssh-copy-id " + second)
+                print(os.system)
             print "Finished and starting with the new machine"
             print "\n"
             if first != fourth:
