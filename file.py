@@ -36,7 +36,6 @@ try:
                 config.write("\n")
             if fifth:
                 os.system("ssh-copy-id " + second)
-                print(os.system)
             print "Finished and starting with the new machine"
             print "\n"
             if first != fourth:
