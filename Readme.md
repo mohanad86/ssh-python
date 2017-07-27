@@ -7,7 +7,7 @@ inserting Host, Hostname, Port, User
 ```sh
 $ cd .ssh/
 $ nano file.py
-$ python file.py config
+$ python3 file.py config
 ```
 
 
