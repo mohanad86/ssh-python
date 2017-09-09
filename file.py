@@ -12,11 +12,16 @@ print ("Creating The File")
 print ("\n")
 
 config = open(filename, 'a')
-scan = input("Scan Your network: ")
-os.system("nmap -v " + scan + "/24" + "| grep " + " open ")
+
+scan1 = input("Scan Your network for open ssh:")
+os.system("nmap -v " + scan1 + "/24" + "| grep " + " 'ssh'")
+
+scan2 = input("Scan Your network for IP Addresses: ")
+os.system("nmap -v " + scan2 + "/24" + "| grep " + " 'port 22'")
 try:
     while True:
             first = input("Please Enter Machine Name: ")
+            zero = input("This for the root user:")
             second = input("Please Enter The Hostname Of the Machine Or IP Address: ")
             third = input("Please Enter The Port Number. Skip with Enter: ")
             fourth = input("Please Enter The User: " )
@@ -34,6 +39,11 @@ try:
             if fourth:
                 config.write("User " + fourth)
                 config.write("\n")
+                config.write("\n")
+            if zero:
+                config.write("\n")
+                config.write("Host " + zero + "\n" + "Hostname " + second + "\n" + third + "\n" + "User " + "root" + "\n")
+                config.write("\n")   
             if fifth:
                     os.system("ssh-copy-id " + fourth + "@" + second)
             if sixth:
