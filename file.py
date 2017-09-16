@@ -1,23 +1,50 @@
+#!/usr/bin/env python3
+
 from sys import argv
 import atexit
 import os
 
 script, filename = argv
 
+if not os.path.exists(".ssh"):
+    os.makedirs(".ssh")
+    print ("ssh folder created")
+    print ("\n")
+
+
+if os.path.exists('.ssh/' + filename):
+    print ("Config File exists in .ssh/")
+    print ("Now We Editing the same Config file")
+    print ("\n")
+
+filename = ".ssh/config"
+
+
+
 def exit_handler():
     print ('Information Saved')
 
 
-print ("Creating The File")
-print ("\n")
+if os.path.exists:
+    config = open(filename, 'a')
+    print ("Creating The ssh config File")
+    print ("\n")
+else: 
+    config = open(filename, 'w')
+    print (config)
 
-config = open(filename, 'a')
+if input("Do you want to create ssh key (y). Skip with Enter: "):
+    os.system("ssh-keygen -t rsa")
+print ("\n")
 
 scan1 = input("Scan Your network for open ssh:")
 os.system("nmap -v " + scan1 + "/24" + "| grep " + " 'ssh'")
+print ("\n")
 
 scan2 = input("Scan Your network for IP Addresses: ")
 os.system("nmap -v " + scan2 + "/24" + "| grep " + " 'port 22'")
+print ("\n")
+
 try:
     while True:
             first = input("Please Enter Machine Name: ")
