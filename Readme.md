@@ -14,7 +14,7 @@ $ python3 file.py config
 ### Convert the script to be executable 
 ```sh
 $ chmod +x filename
-### Run the file 
+Run the file 
 $ ./filename
 ```
 Author: Mohanad Aly
