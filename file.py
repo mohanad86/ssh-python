@@ -20,7 +20,6 @@ if os.path.exists('.ssh/' + filename):
 filename = ".ssh/config"
 
 
-
 def exit_handler():
     print ('Information Saved')
 
